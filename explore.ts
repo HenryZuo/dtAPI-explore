@@ -63,21 +63,14 @@ function formatIsoTimestamp(date: Date) {
 function buildQueryParams() {
   const params = new URLSearchParams({
     limit: '20',
-    page: '2',
+    page: '1',
     status: 'live',
     town: 'London',
-    tags: 'kids'
-    // min_date: formatIsoTimestamp(new Date(Date.now() + MINUTES_AHEAD * 60 * 1000)),
-    // Try to get some family events – if none exist, it will still return something
-    // tags: 'family,kids,children,theatre,workshop,christmas',
+    tags: 'kids',
+    min_date: formatIsoTimestamp(new Date(Date.UTC(2026, 5, 1, 0, 0, 0))),
+    max_date: formatIsoTimestamp(new Date(Date.UTC(2026, 11, 1, 0, 0, 0)))
   });
 
-  // If you need town-specific events, uncomment one of the following
-  // params.append('town', 'London');
-  // params.append('town', 'Edinburgh');
-  // params.append('tags', 'christmas');
-  // params.append('tags', 'comedy,!film');
-  // params.append('name', 'panto');
   return params;
 }
 
